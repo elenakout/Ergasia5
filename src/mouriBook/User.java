@@ -5,6 +5,8 @@
 package mouriBook;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -34,7 +36,7 @@ public class User {
         return this.friendsList;
     }  
     
-    private Boolean isFriend (User friend){    
+    public Boolean isFriend (User friend){    
         return (friendsList.contains(friend));
     }
     
@@ -60,12 +62,15 @@ public class User {
         ArrayList<User> commonList = new ArrayList<User>(this.friendsList);
         int num=1;
         commonList.retainAll(usr.getFriendsList());
-        System.out.println("**************************************");
-        System.out.println("Common friends of " + this.name + " and " + usr.toString());
-        System.out.println("**************************************");
-        for (User friend : commonList){
-            System.out.println(num++ + ": " + friend.toString());
-        }
+        if(commonList.size() != 0){
+            System.out.println("**************************************");
+            System.out.println("Common friends of " + this.name + " and " + usr.toString());
+            System.out.println("**************************************");
+            for (User friend : commonList){
+                System.out.println(num++ + ": " + friend.toString());
+            }
+            System.out.println("**************************************");
+        }else System.out.println(this.name + " and " + usr.toString() + "don't have common friends.");
     }
     
     public void printFriendsList(){
@@ -80,6 +85,10 @@ public class User {
         for(Group group : groupsList){
             System.out.println(group);
         }
+    }
+    
+    public Post createPost(String content){   
+        return new Post(content, this);
     }
     
     @Override
