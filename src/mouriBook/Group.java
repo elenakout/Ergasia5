@@ -4,10 +4,17 @@
  */
 package mouriBook;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Έλενα
  */
-class Group {
+abstract class Group {
+    private String name;
+    private String desc;
+    private ArrayList<User> memberList = new ArrayList<>();
+    private ArrayList<Post> postList = new ArrayList<>();
+    
     
 }

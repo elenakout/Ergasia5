@@ -15,7 +15,7 @@ public class User {
     private String name;
     private String email;
     private ArrayList<User> friendsList = new ArrayList<>();
-    private ArrayList<String> groupsList = new ArrayList<>();
+    private ArrayList<Group> groupsList = new ArrayList<>();
 
     User(String usrName, String usrEmail) {
         this.name = usrName;
@@ -41,7 +41,7 @@ public class User {
     public void addFriend(User newFriend){
         if (isFriend(newFriend)){
             System.out.println(this.name + " and " + newFriend.toString() + " are already friends!");
-        }else if(this.toString().equals(newFriend.toString())){
+        }else if(this.name.equals(newFriend.toString())){
             System.out.println("Yourself is always your friend :)");
         }else {
             friendsList.add(newFriend);
@@ -50,8 +50,10 @@ public class User {
         }
     }
     
-    public void addGroup(String newgroup){
-        
+    public void addGroup(Group newgroup){
+        if(!this.groupsList.contains(newgroup)){
+            this.groupsList.add(newgroup);
+        }else System.out.println(this.name + " is already member of " + newgroup);
     }
     
     public void printCommonFriends(User usr){
@@ -75,6 +77,9 @@ public class User {
     
     public void printGroupList(){
         System.out.println(this.name + "'s Groups");
+        for(Group group : groupsList){
+            System.out.println(group);
+        }
     }
     
     @Override
