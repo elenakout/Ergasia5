@@ -15,16 +15,16 @@ public class User {
     private String name;
     private String email;
     private ArrayList<User> friendsList = new ArrayList<>();
-    private ArrayList<Group> groupsList = new ArrayList<>();
+    private ArrayList<String> groupsList = new ArrayList<>();
 
     User(String usrName, String usrEmail) {
         this.name = usrName;
         this.email = usrEmail;
     }
     
-    public String getName(){
-        return this.name;
-    }
+//    public String getName(){
+//        return this.name;
+//    }
     
 //    public String getEmail(){
 //        return this.email;
@@ -40,12 +40,12 @@ public class User {
     
     public void addFriend(User newFriend){
         if (isFriend(newFriend)){
-            System.out.println(this.name + " and " + newFriend.getName() + " are already friends!");
+            System.out.println(this.name + " and " + newFriend.toString() + " are already friends!");
         }else if(this.toString().equals(newFriend.toString())){
             System.out.println("Yourself is always your friend :)");
         }else {
             friendsList.add(newFriend);
-            System.out.println(this.name + " and " + newFriend.getName() + " are now friends!");
+            System.out.println(this.name + " and " + newFriend.toString() + " are now friends!");
             
         }
     }
@@ -59,17 +59,17 @@ public class User {
         int num=1;
         commonList.retainAll(usr.getFriendsList());
         System.out.println("**************************************");
-        System.out.println("Common friends of " + this.name + " and " + usr.getName());
+        System.out.println("Common friends of " + this.name + " and " + usr.toString());
         System.out.println("**************************************");
         for (User friend : commonList){
-            System.out.println(num++ + ": " + friend.getName());
+            System.out.println(num++ + ": " + friend.toString());
         }
     }
     
     public void printFriendsList(){
         System.out.println(this.name + "'s Friends:");
         for (User friend : this.friendsList){
-            System.out.println(friend.getName());
+            System.out.println(friend.toString());
         }
     }
     
@@ -79,7 +79,7 @@ public class User {
     
     @Override
     public String toString(){
-        return name + " " + email;
+        return name;
     }
     
 }
