@@ -39,7 +39,8 @@ public class MouriBook_ex2 {
 		Post p1reply = u2.createPost("Hello to you too! Enjoy our group!");
 		g1.addReplyToPost(p1, p1reply);
 		Post p1Reply2 = u3.createPost("Hello Makis!");
-		g1.addReplyToPost(p1reply, p1Reply2);
+		//g1.addReplyToPost(p1reply, p1Reply2);
+                g1.addReplyToPost(p1, p1Reply2);
 		g1.printWall();
 		System.out.println("++++++++++++++++++++++++++++++++++++++++");
 		g2.addMember(u3);

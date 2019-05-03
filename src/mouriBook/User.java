@@ -46,10 +46,14 @@ public class User {
         }else if(this.name.equals(newFriend.toString())){
             System.out.println("Yourself is always your friend :)");
         }else {
-            friendsList.add(newFriend);
+            this.friendsList.add(newFriend);
             System.out.println(this.name + " and " + newFriend.toString() + " are now friends!");
-            
+            newFriend.addFriendBack(this);
         }
+    }
+    
+    private void addFriendBack(User friend){
+        this.friendsList.add(friend);
     }
     
     public void addGroup(Group newgroup){

@@ -33,8 +33,7 @@ public class OpenGroup extends Group{
     @Override
     void addReplyToPost(Post original, Post reply) {
         if(this.isMember(reply.getPostUser()) || this.checkFriends(reply.getPostUser())){
-           original.addReply(reply);
-           
+           original.addReply(reply);           
         }
     }
 
