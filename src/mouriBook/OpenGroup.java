@@ -19,7 +19,7 @@ public class OpenGroup extends Group{
     private Boolean checkFriends(User usr){
         ArrayList<User> friendsInGroup = new ArrayList<>(this.memberList);
         friendsInGroup.retainAll(usr.getFriendsList());
-        return (friendsInGroup.size() > 0);
+        return (!friendsInGroup.isEmpty());
     }
    
     
@@ -34,7 +34,7 @@ public class OpenGroup extends Group{
     void addReplyToPost(Post original, Post reply) {
         if(this.isMember(reply.getPostUser()) || this.checkFriends(reply.getPostUser())){
            original.addReply(reply);           
-        }
+        }else System.out.println("User " + reply.getPostUser() + " cannot post on Open Group" + this.name);
     }
 
     

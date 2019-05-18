@@ -33,7 +33,7 @@ abstract class Group {
     }
     
     public void printMembers(){
-        if(this.memberList.size() != 0){
+        if(!this.memberList.isEmpty()){
             System.out.println(this.name + "'s Members:");
             for(User member : this.memberList){
                 System.out.println(member);

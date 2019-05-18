@@ -5,8 +5,6 @@
 package mouriBook;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -47,8 +45,9 @@ public class User {
             System.out.println("Yourself is always your friend :)");
         }else {
             this.friendsList.add(newFriend);
-            System.out.println(this.name + " and " + newFriend.toString() + " are now friends!");
             newFriend.addFriendBack(this);
+            System.out.println(this.name + " and " + newFriend.toString() + " are now friends!");
+            
         }
     }
     
@@ -66,7 +65,7 @@ public class User {
         ArrayList<User> commonList = new ArrayList<User>(this.friendsList);
         int num=1;
         commonList.retainAll(usr.getFriendsList());
-        if(commonList.size() != 0){
+        if(!commonList.isEmpty()){
             System.out.println("**************************************");
             System.out.println("Common friends of " + this.name + " and " + usr.toString());
             System.out.println("**************************************");

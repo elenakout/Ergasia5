@@ -42,8 +42,7 @@ class Post {
             for(Post post : this.postRepl){
                 str.append("\n -> " + post);
             }
-        }
-        
+        }       
         return str.toString();
     }
 }
