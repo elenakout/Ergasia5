@@ -11,10 +11,10 @@ import java.util.ArrayList;
  * @author Έλενα
  */
 abstract class Group {
-    String name;
-    String desc;
-    ArrayList<User> memberList = new ArrayList<>();
-    ArrayList<Post> wall = new ArrayList<>();
+    protected String name;
+    protected String desc;
+    protected ArrayList<User> memberList = new ArrayList<>();
+    protected ArrayList<Post> wall = new ArrayList<>();
     
     public Group(String name, String desc){
         this.name = name;
@@ -55,5 +55,10 @@ abstract class Group {
     abstract void addPost(Post post);
     
     abstract void addReplyToPost(Post original, Post reply);
+    
+    @Override
+    public String toString(){
+        return name;
+    }
     
 }
