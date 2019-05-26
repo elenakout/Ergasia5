@@ -77,7 +77,7 @@ public class User {
         // Έλεγχος για το αν πρόκειται για το ίδιο πρόσωπο ή
         // για χρήστη που είναι ήδη φίλος, με τη κλήση της μεθόδου isFriend()
         if (isFriend(newFriend)){
-            System.out.println(this.name + " and " + newFriend.toString() + " are already friends!");
+            System.out.println(this.name + " and " + newFriend + " are already friends!");
         }else {
         // Αν o έλεγχος επιστρέψει false προσθέτουμε το φίλο στη λίστα
             this.friendsList.add(newFriend);
@@ -85,7 +85,7 @@ public class User {
         // με τη κλήση της εσωτερικής μεθόδου addFriendBack(). Η μέθοδος καλέιτε στο αντικείμενο
         // του νέου φίλου.
             newFriend.addFriendBack(this);
-            System.out.println(this.name + " and " + newFriend.toString() + " are now friends!");
+            System.out.println(this.name + " and " + newFriend + " are now friends!");
             
         }
     }
@@ -125,22 +125,20 @@ public class User {
         // επιστρέφουμε το ανάλογο μήνυμα.
         if(!commonList.isEmpty()){
             System.out.println("**************************************");
-            System.out.println("Common friends of " + this.name + " and " + usr.toString());
+            System.out.println("Common friends of " + this.name + " and " + usr);
             System.out.println("**************************************");
             for (User friend : commonList){
-                System.out.println(num++ + ": " + friend.toString());
+                System.out.println(num++ + ": " + friend);
             }
             System.out.println("**************************************");
-        }else System.out.println(this.name + " and " + usr.toString() + "don't have common friends.");
+        }else System.out.println(this.name + " and " + usr + "don't have common friends.");
     }
     
     // Η μέθοδος τυπώνει τους φίλους ενός χρήστη
     public void printFriendsList(){
         System.out.println(this.name + "'s Friends:");
         for (User friend : this.friendsList){
-            // Χρησιμοποιούμε τη toString μέθοδο που έχουμε κάνει Override και
-            // και εκτυπώνει τα ονόματα των φίλων.
-            System.out.println(friend.toString());
+            System.out.println(friend);
         }
     }
     
@@ -148,7 +146,7 @@ public class User {
     public void printGroupList(){
         System.out.println(this.name + "'s Groups");
         for(Group group : groupsList){
-            System.out.println(group.toString());
+            System.out.println(group);
         }
     }
     
@@ -160,6 +158,7 @@ public class User {
         return new Post(content, this);
     }
     
+//  Η μέθοδος επιστρέφει το όνομα του χρήστη
     @Override
     public String toString(){
         return name;
