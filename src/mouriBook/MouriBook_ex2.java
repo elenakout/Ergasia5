@@ -72,5 +72,33 @@ public class MouriBook_ex2 {
 	System.out.println(g1.getLatestPost());
         System.out.println("Latest Post of Group 2");
 	System.out.println(g2.getLatestPost());
+        
+        System.out.println(" ");
+        System.out.println("----------- Testing -------------");
+        System.out.println(" ");
+        
+        Group g3 = new OpenGroup("Memes", "Groupabout memes!");
+        
+        u2.addFriend(u1);
+	u3.addFriend(u3);
+        System.out.println(" ");
+        
+        u4.printFriendsList();
+        System.out.println("--------------------------");
+        u4.printGroupList();
+        System.out.println(" ");
+        
+        g1.printMembers();
+        System.out.println(" ");
+        
+        g3.printWall();
+        System.out.println("Latest Post of Group 3");
+        System.out.println(g3.getLatestPost());
+        System.out.println(" ");
+        
+        Post pp3 = u4.createPost("Hi Teo!");
+	g1.addPost(pp3);
+        
+        g1.printWall();
     } 
 }
