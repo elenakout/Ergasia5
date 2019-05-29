@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 // Η κλαση Group δηλώνεται ως abstract δηλαδή αφηρημένη κλάση που πέριεχει τις βασικές 
 // λειτουργίες και ιδιότητες που περιέχει κάθε Group
-// - Ονομα
+// - Όνομα
 // - Περιγραφή
 // - Λίστα με τα μέλη
 // - Λίστα με τα Post
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 // Έχουμε δύο κατηγορίες Group, openGroup και privateGroup. Στη parent κλάση Group 
 // υλοποιούνται οι κοινές λειτουργίες. Η διαφορά στα δύο Group είναι πότε μπορεί να αναρτήσει
 // ένας χρήστης Post. Έτσι δηλώνουμε δύο abstract μεθόδους οι οποίες υλοποιούνται στις
-// δύο κατηγορίες διαφορετικά.
+// δύο υπόκατηγορίες διαφορετικά.
 abstract class Group {
     // Βασικές ιδιότητες των Group 
     protected String name;
@@ -39,7 +39,7 @@ abstract class Group {
         this.desc = desc;
     }
     
-//  Η μέθοδος δέχεται ως όρισμα και επιστρέφει true/fasle αν υπάρχει
+//  Η μέθοδος δέχεται ως όρισμα έναν χρήστη και επιστρέφει true/fasle αν υπάρχει
 //  στη λίστα μελών του Group
     public Boolean isMember(User usr){
         return this.memberList.contains(usr);
@@ -82,7 +82,7 @@ abstract class Group {
         
     }
     
-    // Η μέθοδος επιστρέφει το τελεύταί Post από τη λίστα του Group
+    // Η μέθοδος επιστρέφει το τελεύταίο Post από τη λίστα του Group
     // Αν η λίστα είναι κενή επιστρέφει τη τιμή null
     public Post getLatestPost(){      
         if(!this.wall.isEmpty()){

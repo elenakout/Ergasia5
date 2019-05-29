@@ -31,7 +31,7 @@ class Post {
     
     // Ο κατασκευαστής αρχικόποιεί τα πεδία της κλάσης
     // Έχει ορίσματα το χρήστη που δημιουργησε το Post 
-    // και το κείμενο. Η ημερομίνία του Post καταχωρήται αυτόματα
+    // και το κείμενο. Η ημερομηνία του Post καταχωρείται αυτόματα
     // με τη new Date()
     public Post(String content, User usr){ 
         this.dateAdded = new Date();
@@ -55,7 +55,7 @@ class Post {
         this.postReplies.add(post);
     }
     
-    // Για τη μέθοδο toString() χρησιμοποιουμε το StringBuilder για
+    // Για τη μέθοδο toString() χρησιμοποιουμε ένα StringBuilder για
     // κατασκευάσουμε το string που απαιτεί η εκφώνηση να εμφανιστεί, επειδή η μέθοδος
     // toString επιστρέφει ένα μόνο String κι εμείς χρειάζεται να κάνουμε μία επανάληψη στη
     // λίστα με τις απαντήσεις του Post και να τις τύπώσουμε σε μία νέα σειρα.
@@ -63,10 +63,13 @@ class Post {
     public String toString(){
         //Δημιουργία αντικειμένου StringBuilder 
         StringBuilder str = new StringBuilder();
+        
         // Με τη μέθοδο appent(String)προσθέτουμε τα πέδία του Post 
         str.append("| " + this.dateAdded.toString() + " | "+ this.postUser.toString() + " : " + this.postContent );
+        
         // Αν υπάρχουν απαντήσεις στο Post
         if(!this.postReplies.isEmpty()){
+            
             // Για κάθε απάντηση καλούμε τη μέθοδο append(String) και προσθέτουμε
             // τα πεδία της απάντησης σε μία καινούρια σειρά
             for(Post post : this.postReplies){
